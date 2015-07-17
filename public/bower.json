@@ -1,0 +1,21 @@
+{
+  "name": "LookBook Frontend",
+  "version": "0.0.0",
+  "authors": [
+    "ltregan <l.tregan@gmail.com>"
+  ],
+  "description": "The amazing look book front-end",
+  "main": "index.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "font-awesome": "~4.3.0",
+    "jquery": "~2.1.4"
+  }
+}

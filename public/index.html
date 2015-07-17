@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet"  href="main.css">
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css">
+
+
+    <!-- script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script -->
+
+    <script>
+
+        var SCROLL_SPEED = 40;
+
+        function getCurrentLookBook() {
+            var arrowPosition = document.getElementById("arrow").getBoundingClientRect();
+            arrowPosition.top += window.scrollTop;
+            return getLookBookAt(0, arrowPosition.top);
+        }
+
+        function getLookBookAt(x, y) {
+            var result =  document.elementFromPoint(x, y);
+            while( result && !result.classList.contains("lookbook"))
+                result = result.parentNode;
+            return result;
+        }
+
+        function scrollLookbook(increment){
+            var currentLookbook = getCurrentLookBook();
+            var scrollLeft = currentLookbook.scrollLeft;
+            currentLookbook.scrollLeft = scrollLeft +    increment;
+            if( scrollLeft != currentLookbook.scrollLeft)
+                window.requestAnimationFrame( function(){ scrollLookbook(increment); });
+        }
+
+
+        function  updateArrowStatus(){
+            var currentLookbook = getCurrentLookBook();
+            console.log("currentLookBook="+currentLookbook.id);
+            var arrow = document.getElementById("arrow");
+            if( currentLookbook.scrollLeft === 0 ) {
+                arrow.classList.remove("fa-arrow-circle-o-left");
+                arrow.classList.add("fa-arrow-circle-o-right");
+                arrow.onclick = function(){ scrollLookbook( + SCROLL_SPEED); };
+            }else{
+                arrow.classList.remove("fa-arrow-circle-o-right");
+                arrow.classList.add("fa-arrow-circle-o-left");
+                arrow.onclick = function(){ scrollLookbook(- SCROLL_SPEED); };
+            }
+
+            var currentElement = getLookBookAt(0, 0);
+            var opacity = 128;
+            if(  currentElement ) {
+                var rect = currentElement.getBoundingClientRect();
+                if (rect.bottom < 128)
+                    opacity = rect.bottom;
+                else if (rect.top > -128)
+                    opacity = -rect.top;
+            }else
+                opacity = 0;
+
+            var menubar = document.getElementById("menubar");
+            menubar.style.opacity = opacity*opacity / (128.0*128);
+
+        }
+
+    </script>
+
+
+
+</head>
+
+<body onscroll="updateArrowStatus()">
+
+    <div class="menubar" id="menubar">
+        <ul>
+            <li>Man</li>
+            <li class="x">Woman</li>
+            <li>Sport</li>
+            <li>City</li>
+        </ul>
+    </div>
+
+    <div class="lookbook" id="L1"  onscroll="updateArrowStatus()">
+        <img src="bottom-kids-collection-summer.jpg" ><div>
+            <figure>
+                <img src="lacost-white-dress.jpg">
+                <figcaption>White Dress $80</figcaption>
+            </figure><figure>
+                <img src="lacoste-blue-polo.jpg">
+                <figcaption>Blue Polo $40</figcaption>
+            </figure><figure>
+                <img src="lacost-white-dress.jpg">
+                <figcaption>White Dress $80</figcaption>
+            </figure>
+         </div></div><div class="lookbook"  onscroll="updateArrowStatus()">
+        <img  src="bottom-mag-mylacostepolo-itw.jpg" class="moved" >
+        <i id="arrow" class="fa fa-arrow-circle-o-right fa-5x navarrow" onclick="function(){ scrollLookbook(-SCROLL_SPEED); };"></i>
+        <figure>
+            <img src="polo2.jpg">
+            <figcaption>Polo Chiné $40</figcaption>
+        </figure>
+        <figure>
+            <img src="polo1.jpg">
+            <figcaption>Polo maille rouge $80</figcaption>
+        </figure>
+
+
+
+
+
+    </div><div class="lookbook" onscroll="updateArrowStatus()">
+        <img src="bottom-mylacostepolo.jpg" >
+    </div>
+
+
+    <i class="fa fa-arrow-circle-o-right fa-1"></i>&nbsp;&nbsp;
+
+
+</body>
+</html>

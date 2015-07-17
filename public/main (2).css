@@ -1,0 +1,27 @@
+
+
+.navarrow{
+    position: fixed;
+    top: 50%;
+    right: 1em;
+    font-size: 5em;
+}
+
+body div{
+    width: 100%;
+}
+
+div div{
+
+    display: inline;
+}
+
+div img{
+
+    width: 100%;
+}
+
+.moved {
+
+
+}
