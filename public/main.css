@@ -41,7 +41,7 @@ figcaption {
     margin-left: 20%;
     position: fixed;
 
-    background-color: black;
+    background-color: #100708;
     opacity: 0.8;
     border-radius: 1em;
     padding: 0.5em 1.5em;
@@ -54,14 +54,24 @@ figcaption {
 .menubar ul li{
     display: inline;
     font-size: 1.5em;
-    color: white;
-    font-family: "Courier New";
+    color: #403A36;
+
+    font-family: "Courrier New";
+
     padding: 3em 2em;
+    text-transform: uppercase;
 }
 
-.menubar ul li .x{
-    color: greenyellow;
+.menubar ul li.x{
+    color: whitesmoke;
 }
+
+
+.menubar ul li:hover{
+    color: whitesmoke;
+
+}
+
 
 /**
  *  Lookbooks take all the page width, and displays the overflow on the right-hand side.
