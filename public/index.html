@@ -75,6 +75,8 @@
 
 <body onscroll="updateArrowStatus()">
 
+Dynamic
+
     <div class="menubar" id="menubar">
         <ul>
             <li>Man</li>
@@ -84,8 +86,11 @@
         </ul>
     </div>
 
-    <div class="lookbook" id="L1"  onscroll="updateArrowStatus()">
-        <img src="bottom-kids-collection-summer.jpg" ><div>
+
+    <i id="arrow" class="fa fa-arrow-circle-o-right fa-5x navarrow" onclick="function(){ scrollLookbook(-SCROLL_SPEED); };"></i>
+
+    <div class="lookbook" id="L1"  onscroll="updateArrowStatus()"><img src="bottom-kids-collection-summer.jpg" >
+        <div>
             <figure>
                 <img src="lacost-white-dress.jpg">
                 <figcaption>White Dress $80</figcaption>
@@ -96,9 +101,12 @@
                 <img src="lacost-white-dress.jpg">
                 <figcaption>White Dress $80</figcaption>
             </figure>
-         </div></div><div class="lookbook"  onscroll="updateArrowStatus()">
+         </div>
+    </div>
+
+    <div class="lookbook"  onscroll="updateArrowStatus()">
         <img  src="bottom-mag-mylacostepolo-itw.jpg" class="moved" >
-        <i id="arrow" class="fa fa-arrow-circle-o-right fa-5x navarrow" onclick="function(){ scrollLookbook(-SCROLL_SPEED); };"></i>
+
         <figure>
             <img src="polo2.jpg">
             <figcaption>Polo Chiné $40</figcaption>
@@ -107,18 +115,11 @@
             <img src="polo1.jpg">
             <figcaption>Polo maille rouge $80</figcaption>
         </figure>
-
-
-
-
-
-    </div><div class="lookbook" onscroll="updateArrowStatus()">
-        <img src="bottom-mylacostepolo.jpg" >
     </div>
 
-
-    <i class="fa fa-arrow-circle-o-right fa-1"></i>&nbsp;&nbsp;
-
+    <div class="lookbook" onscroll="updateArrowStatus()">
+        <img src="bottom-mylacostepolo.jpg" >
+    </div>
 
 </body>
 </html>

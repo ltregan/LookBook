@@ -17,7 +17,6 @@
 
 ::-webkit-scrollbar {
     width: 0px;
-    height: 0px;
 }
 
 
@@ -80,13 +79,13 @@ figcaption {
 
 
 .lookbook {
-    margin: 0 0 0 0;
+    margin: 0 -1em 0 -2em;
     padding: 0;
 
     white-space: nowrap; /* right-side, overflowed content is displayed inline */
     overflow: scroll; /* upon swipe, only the lookbook will scroll and not the entire page */
     max-height: 100%;
-    display: block; /* remove text below the div /*
+    display: inline-block; /* remove text below the div /*
 
 /*
   Disable selection, can be caused by some gestures.
@@ -100,7 +99,10 @@ figcaption {
 
 }
 
-
+.lookbook:before, .lookbook:after{
+    content: "";
+    content: none;
+}
 
 
 .lookbook div{
