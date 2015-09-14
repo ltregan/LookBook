@@ -1,5 +1,8 @@
 package ltregan.indexsynch;
 
+import com.google.inject.Guice;
+import com.google.inject.Injector;
+
 import java.io.File;
 
 /**
@@ -8,10 +11,10 @@ import java.io.File;
 public class App {
 
     public static void  main( String args[] ) throws Exception{
-        IndexBuilder builder = new  IndexBuilder();
-        builder.root( new File("../lookbooks" ))
-                .elasticSearchURL( new java.net.URL("http://localhost:80")).run();
+        Injector injector = Guice.createInjector(new ProductionModule());
 
+        IndexBuilder builder = injector.getInstance(IndexBuilder.class);
+        builder.root(new File("../lookbooks")).run();
 
     }
 
